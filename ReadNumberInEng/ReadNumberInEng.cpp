@@ -13,8 +13,8 @@ static const long long RANGE_BILLION = 1000000000;
 static const string table_units[] = { "billions", "millions", "thousands", "" };
 static const string table_units_one[] = { "billion", "million", "thousand", "" };
 
-static const string table_singledigits[] = { "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" };
-static const string table_ten_and_twenty[] = { "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen" };
+static const string table_single_digits[] = { "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" };
+static const string table_ten_to_twenty[] = { "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen" };
 static const string table_second_digits[] = { "twenty", "thirty", "fourty", "fifty", "sixty", "seventy", "eighty", "ninety" };
 
 string print_number_lessthan_thousand(int number_lessthan_thousand)
@@ -29,7 +29,7 @@ string print_number_lessthan_thousand(int number_lessthan_thousand)
 	int hundreds = number_lessthan_thousand / 100;
 	if (hundreds > 0)
 	{
-		str_hundreds = table_singledigits[hundreds - 1];
+		str_hundreds = table_single_digits[hundreds - 1];
 		result = str_hundreds + " " + (hundreds == 1 ? "hundred" : "hundreds");
 	}
 
@@ -39,17 +39,17 @@ string print_number_lessthan_thousand(int number_lessthan_thousand)
 
 	if (tens < 10)
 	{
-		str_tens = table_singledigits[tens - 1];
+		str_tens = table_single_digits[tens - 1];
 	}
 	else if (tens < 20) // >= 11
 	{
-		str_tens = table_ten_and_twenty[tens - 11];
+		str_tens = table_ten_to_twenty[tens - 11];
 	}
 	else // >= 21
 	{
 		int second_digit = tens / 10;
 		int digit = tens % 10;
-		str_tens = table_second_digits[second_digit - 2] + " " + table_singledigits[digit - 1];
+		str_tens = table_second_digits[second_digit - 2] + " " + table_single_digits[digit - 1];
 	}
 
 	if (hundreds > 0)
