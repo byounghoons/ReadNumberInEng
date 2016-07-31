@@ -61,18 +61,18 @@ string print_number_lessthan_thousand(int number_lessthan_thousand)
 
 int main()
 {
-	long long source = 0;
+	long long input = 0;
 	long long max_range = RANGE_BILLION; // billion
 
 	cout << "Please input numbers to read (max is" << max_range * 1000 - 1 << ")\n";
-	cin >> source;
+	cin >> input;
 	if (cin.fail())
 	{
 		cout << "Error happens\n";
 		return 0;
 	}
 
-	if (source >= max_range * 1000)
+	if (input >= max_range * 1000)
 	{
 		cout << "It's too big number. Sorry we can't handle it\n";
 		return 0;
@@ -80,6 +80,7 @@ int main()
 
 	string result;
 	int idx_unit = 0;
+	long long source = input;
 
 	while (max_range > 0)
 	{
